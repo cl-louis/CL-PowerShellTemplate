@@ -109,7 +109,7 @@ else {
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
-Start-Log -LogPath $sOutputDir -LogName $sLogName -ScriptVersion $sScriptVersion
+Start-Log -LogPath $sOutputDir -LogName $sLogName -ScriptVersion $sScriptVersion | Out-Null
 # SCRIPT START
 
 # SCRIPT LOGIC GOES HERE
