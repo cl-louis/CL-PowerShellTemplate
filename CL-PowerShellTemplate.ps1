@@ -119,8 +119,8 @@ Start-Log -LogPath $sOutputDir -LogName $sLogName -ScriptVersion $sScriptVersion
 
 # SCRIPT LOGIC GOES HERE
 
+Read-Host -Prompt "Press enter to exit..." | Out-Null
+
 # SCRIPT END
 Stop-Log -LogPath $sLogFile
 Stop-Transcript
-Pause
-Exit
