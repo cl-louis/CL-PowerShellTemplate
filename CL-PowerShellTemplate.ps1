@@ -58,7 +58,7 @@ $sScriptVersion = "1.0"
 $sScriptName = (Get-Item $PSCommandPath ).Basename
 
 # Script output directory
-$sOutputDir = Join-Path -Path $env:userprofile -ChildPath "Documents" -AdditionalChildPath $sScriptName
+$sOutputDir = "$(Join-Path -Path $env:userprofile -ChildPath "Documents" | Join-Path -ChildPath $sScriptName)"
 # Creates output directory
 New-Item -ItemType Directory -Force -Path $sOutputDir -ErrorAction $ErrorActionPreference | Out-Null
 
