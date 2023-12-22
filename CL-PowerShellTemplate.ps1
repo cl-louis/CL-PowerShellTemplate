@@ -66,6 +66,10 @@ New-Item -ItemType Directory -Force -Path $sOutputDir -ErrorAction $ErrorActionP
 $sLogName = "$sScriptName.log"
 $sLogFile = Join-Path -Path $sOutputDir -ChildPath $sLogName
 
+# Transcript file decs
+$sTranscriptName = "$sScriptName.transcript"
+$sTranscriptFile = Join-Path -Path $sOutputDir -ChildPath $sTranscriptName
+
 #-----------------------------------------------------------[Functions]------------------------------------------------------------
 
 <#
@@ -109,6 +113,7 @@ else {
 
 #-----------------------------------------------------------[Execution]------------------------------------------------------------
 
+Start-Transcript -Path $sTranscriptFile | Out-Null
 Start-Log -LogPath $sOutputDir -LogName $sLogName -ScriptVersion $sScriptVersion | Out-Null
 # SCRIPT START
 
@@ -116,5 +121,6 @@ Start-Log -LogPath $sOutputDir -LogName $sLogName -ScriptVersion $sScriptVersion
 
 # SCRIPT END
 Stop-Log -LogPath $sLogFile
+Stop-Transcript
 Pause
 Exit
